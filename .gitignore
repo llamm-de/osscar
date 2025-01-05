@@ -22,6 +22,7 @@ var/
 *.egg
 
 # Virtual environment
+.venv/
 env/
 venv/
 ENV/
@@ -38,7 +39,7 @@ venv.bak/
 
 # Pytest
 .cache
-pytest_cache/
+.pytest_cache/
 
 # Coverage reports
 htmlcov/
