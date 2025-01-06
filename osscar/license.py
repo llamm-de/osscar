@@ -7,6 +7,12 @@ class License(ABC):
         """Return a list of compatible licenses."""
         pass 
 
+    @property
+    @abstractmethod
+    def copyleft(self) -> bool:
+        """Return a boolean whether the license has a copyleft."""
+        pass 
+
     def is_compatible(self, other: 'License') -> bool:
         """Check if this license is compatible with another license."""
         if str(other) not in self.compatible_licenses:
