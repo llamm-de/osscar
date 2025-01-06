@@ -10,6 +10,11 @@ setup(
         ],
     },
     install_requires=[
+        'iniconfig==2.0.0',
+        'packaging==24.2',
+        'pluggy==1.5.0',
+        'pytest==8.3.4',
+        'pytest-cov==6.0.0',
     ],
     author='Lukas Lamm',
     author_email='lamm.lukas@gmail.com',
@@ -20,5 +25,5 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    python_requires='>=3.11',
+    python_requires='>=3.8',
 )
