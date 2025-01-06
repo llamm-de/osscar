@@ -1,20 +1,10 @@
 import pytest
 from osscar.component import Component
-from osscar.license import License
-
-# Concrete implementation for testing
-class TestLicense(License):
-    @property
-    def compatible_licenses(self) -> list[str]:
-        return ["MIT License", "Apache License 2.0"]
-    
-    @property
-    def copyleft(self) -> bool:
-        return True
+from osscar.license import License, LicenseName
 
 def test_component_initialization():
     # Create a TestLicense instance
-    license_instance = TestLicense()
+    license_instance = License(name=LicenseName.MIT, compatible_licenses=[LicenseName.MIT, LicenseName.APACHE], copyleft=True)
     
     # Create a Component instance
     component = Component(name="ExampleComponent", version="1.0.0", license=license_instance)
@@ -26,10 +16,10 @@ def test_component_initialization():
 
 def test_component_repr():
     # Create a TestLicense instance
-    license_instance = TestLicense()
+    license_instance = License(name=LicenseName.MIT, compatible_licenses=[LicenseName.MIT, LicenseName.APACHE], copyleft=True)
     
     # Create a Component instance
     component = Component(name="ExampleComponent", version="1.0.0", license=license_instance)
     
     # Assert that the string representation is correct
-    assert repr(component) == "Component(name=ExampleComponent, version=1.0.0, license=TestLicense)" 
+    assert repr(component) == "Component(name=ExampleComponent, version=1.0.0, license=License(LicenseName.MIT))" 

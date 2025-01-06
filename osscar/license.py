@@ -1,38 +1,37 @@
-from abc import ABC, abstractmethod
+from enum import Enum
+from typing import List
 
-class License(ABC):
-    @property
-    @abstractmethod
-    def compatible_licenses(self) -> list[str]:
-        """Return a list of compatible licenses."""
-        pass 
+class LicenseName(Enum):
+    """Enum for the name of the license."""
+    MIT = "MIT"
+    GPL = "GPL"
+    APACHE = "Apache"
 
-    @property
-    @abstractmethod
-    def copyleft(self) -> bool:
-        """Return a boolean whether the license has a copyleft."""
-        pass 
+class License():
+    """Base class for all licenses."""
+    def __init__(self, name: LicenseName, compatible_licenses: List[LicenseName], copyleft: bool) -> None:
+        self.name = name
+        self.compatible_licenses = compatible_licenses
+        self.copyleft = copyleft
 
     def is_compatible(self, other: 'License') -> bool:
         """Check if this license is compatible with another license."""
-        if str(other) not in self.compatible_licenses:
+        if other.name not in self.compatible_licenses:
             return False 
         return True 
 
     def __eq__(self, other: object) -> bool:
         """Check if this license is equal to another license."""
-        if not isinstance(other, License):
-            return False
-        return type(self) is type(other) 
+        return self.name == other.name  
     
     def __hash__(self) -> int:
         """Return a hash of the class name."""
-        return hash(self.__class__.__name__)
+        return hash(self.name)
 
     def __repr__(self) -> str:
         """Return the class name as a string."""
-        return self.__class__.__name__ 
+        return f"License({self.name})"
     
     def __str__(self) -> str:
         """Return the class name as a string."""
-        return self.__class__.__name__ 
+        return f"License({self.name})"
