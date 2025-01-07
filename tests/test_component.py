@@ -4,7 +4,7 @@ from osscar.license import License, LicenseName
 
 def test_component_initialization():
     # Create a TestLicense instance
-    license_instance = License(name=LicenseName.MIT, compatible_licenses=[LicenseName.MIT, LicenseName.APACHE], copyleft=True)
+    license_instance = License(name=LicenseName.MIT, compatible_licenses=[LicenseName.MIT, LicenseName.APACHE_2_0], copyleft=True)
     
     # Create a Component instance
     component = Component(name="ExampleComponent", version="1.0.0", license=license_instance)
@@ -16,7 +16,7 @@ def test_component_initialization():
 
 def test_component_repr():
     # Create a TestLicense instance
-    license_instance = License(name=LicenseName.MIT, compatible_licenses=[LicenseName.MIT, LicenseName.APACHE], copyleft=True)
+    license_instance = License(name=LicenseName.MIT, compatible_licenses=[LicenseName.MIT, LicenseName.APACHE_2_0], copyleft=True)
     
     # Create a Component instance
     component = Component(name="ExampleComponent", version="1.0.0", license=license_instance)
