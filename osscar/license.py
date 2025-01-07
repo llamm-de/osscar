@@ -62,6 +62,7 @@ class LicenseFactory:
     """Factory for creating licenses."""
 
     # License configurations
+    # TODO: Add more licenses and complete the configurations for compatibility
     _configs: Dict[LicenseName, LicenseConfig] = {
         LicenseName.MIT: LicenseConfig(name=LicenseName.MIT, compatible_licenses=[], copyleft=False),
         LicenseName.APACHE_2_0: LicenseConfig(name=LicenseName.APACHE_2_0, compatible_licenses=[], copyleft=False),
